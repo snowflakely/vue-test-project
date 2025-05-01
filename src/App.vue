@@ -1,17 +1,12 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
-    원룸샵
-    <h4 class="red" :style="스타일">{{products[0]}}</h4>
-    <p>만원</p>
+  <div class="menu">
+    <a v-for="(a,i) in menus" :key="i">{{ a }}</a>
+    
   </div>
-  <div>
-    <h4>{{products[1]}}</h4>
-    <p>만원</p>
-  </div>
-  <div>
-    <h4>{{products[2]}}</h4>
-    <p>60만원</p>
+
+  <div v-for="(content,i) in products" :key="i">
+    <h4 class="red" :style="스타일">{{content[0]}}</h4>
+    <p>{{ content[1]}}만원</p>
   </div>
 </template>
 
@@ -22,7 +17,8 @@ export default {
   name: 'App',
   data(){
       return{
-        products :['역삼동원룸','천호동원룸','마포구원룸']
+        menus : ['Home','Shop','About'],
+        products :[['역삼동원룸','60'],['천호동원룸','50'],['마포구원룸','40']]
       }
     },
   components: {
@@ -32,12 +28,20 @@ export default {
 </script>
 
 <style>
-#app {
+#app{
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothis: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.menu{
+  background:darkslateblue;
+  padding: 15px;
+  border-radius: 5px;
+}
+.menu a{
+  color: white;
+  padding: 10px;
 }
 </style>
